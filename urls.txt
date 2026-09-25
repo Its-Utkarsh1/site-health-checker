@@ -1,0 +1,7 @@
+https://google.com
+https://facebook.com
+https://httpstat.us/404
+https://httpstat.us/500
+https://fake-site-xyz-12345.com
+https://www.kashiit.ac.in/
+https://linkedin.com/in/sriutkarsh
