@@ -3,12 +3,14 @@ public class Result {
     private int statusCode;
     private long responseTime;
     private String error;
+    private String sslStatus;
 
-    public Result(String url, int statusCode, long responseTime, String error) {
+    public Result(String url, int statusCode, long responseTime, String error, String sslStatus) {
         this.url = url;
         this.statusCode = statusCode;
         this.responseTime = responseTime;
         this.error = error;
+        this.sslStatus = sslStatus;
     }
 
     public boolean isSuccess() {
@@ -27,11 +29,14 @@ public class Result {
     public String getError(){
         return error;
     }
+    public String getSslStatus(){
+        return sslStatus;
+    }
 
     @Override
     public String toString() {
         if (isSuccess()) {
-            return url + "  " + statusCode + "  " + responseTime + "ms";
+            return url + "  " + statusCode + "  " + responseTime + "ms" + sslStatus;
         }
         return url + "  FAILED  " + error;
     }

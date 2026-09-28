@@ -20,6 +20,9 @@ public class Checker {
     }
 
     public Result check(String url){
+
+        boolean isHttps = url.startsWith("https://");
+
         try{
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(url))
@@ -33,20 +36,20 @@ public class Checker {
             );
             long end = System.currentTimeMillis() - start;
 
-            return new Result(url, response.statusCode(), end, null);
+            return new Result(url, response.statusCode(), end, null,isHttps ? " Valid" : "-");
 
         } catch (HttpTimeoutException e) {
-            return new Result(url,-1, -1, "timeout");
+            return new Result(url,-1, -1, "timeout"," -");
         } catch (ConnectException e) {
-            return new Result(url, -1, -1,"could not connect");
+            return new Result(url, -1, -1,"could not connect"," -");
         } catch (UnknownHostException e) {
-            return new Result(url, -1, -1,"unknown host");
+            return new Result(url, -1, -1,"unknown host", " -");
         } catch (IllegalArgumentException e) {
-            return new Result(url,-1,-1, "invalid url");
+            return new Result(url,-1,-1, "invalid url", " -");
         } catch (SSLHandshakeException e) {
-            return new Result(url, -1, -1, "ssl error");
+            return new Result(url, -1, -1, "ssl error", " invalid");
         } catch (Exception e) {
-            return new Result(url,-1, -1,  e.getClass().getSimpleName());
+            return new Result(url,-1, -1,  e.getClass().getSimpleName()," -");
         }
     }
 }
