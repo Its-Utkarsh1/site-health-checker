@@ -31,14 +31,16 @@ A web UI, scheduling, and a database. The core job is checking URLs and reportin
 Tested against 10 URLs: live sites, redirects, timeouts, invalid URLs, and expired SSL. All returned correct results. 4 tests pass.
 
 ## Project structure
+```
 site-health-checker/
 ├── pom.xml
 ├── README.md
 ├── urls.txt
 └── src/
-├── main/java/
-│ ├── Main.java ← entry point, reads file, prints report
-│ ├── Checker.java ← does the HTTP check
-│ └── Result.java ← holds one URL's result
-└── test/java/
-└── CheckerTest.java ← JUnit tests
+    ├── main/java/
+    │   ├── Main.java
+    │   ├── Checker.java
+    │   └── Result.java
+    └── test/java/
+        └── CheckerTest.java
+```
