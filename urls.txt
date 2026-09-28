@@ -6,3 +6,5 @@ https://fake-site-xyz-12345.com
 https://www.kashiit.ac.in/
 https://linkedin.com/in/sriutkarsh
 gfefeffgesd
+https://expired.badssl.com
+https://hello.com

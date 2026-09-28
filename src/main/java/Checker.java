@@ -1,3 +1,4 @@
+import javax.net.ssl.SSLHandshakeException;
 import java.net.ConnectException;
 import java.net.URI;
 import java.net.UnknownHostException;
@@ -14,6 +15,7 @@ public class Checker {
     public Checker(){
         this.client = HttpClient.newBuilder()
                 .connectTimeout(Duration.ofSeconds(5))
+                .followRedirects(HttpClient.Redirect.NORMAL)
                 .build();
     }
 
@@ -41,6 +43,8 @@ public class Checker {
             return new Result(url, -1, -1,"unknown host");
         } catch (IllegalArgumentException e) {
             return new Result(url,-1,-1, "invalid url");
+        } catch (SSLHandshakeException e) {
+            return new Result(url, -1, -1, "ssl error");
         } catch (Exception e) {
             return new Result(url,-1, -1,  e.getClass().getSimpleName());
         }

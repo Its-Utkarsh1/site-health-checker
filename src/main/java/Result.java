@@ -15,10 +15,18 @@ public class Result {
         return error == null;
     }
 
-    public String getUrl()         { return url; }
-    public int getStatusCode()     { return statusCode; }
-    public long getResponseTimeMs(){ return responseTime; }
-    public String getError()       { return error; }
+    public String getUrl(){
+        return url;
+    }
+    public int getStatusCode(){
+        return statusCode;
+    }
+    public long getResponseTimeMs(){
+        return responseTime;
+    }
+    public String getError(){
+        return error;
+    }
 
     @Override
     public String toString() {
